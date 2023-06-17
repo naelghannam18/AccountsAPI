@@ -1,0 +1,12 @@
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\bin\Debug\net6.0\UnitTesting.deps.json
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\bin\Debug\net6.0\UnitTesting.dll
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\bin\Debug\net6.0\UnitTesting.pdb
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\UnitTesting.csproj.AssemblyReference.cache
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\UnitTesting.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\UnitTesting.AssemblyInfoInputs.cache
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\UnitTesting.AssemblyInfo.cs
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\UnitTesting.csproj.CoreCompileInputs.cache
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\UnitTesting.dll
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\refint\UnitTesting.dll
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\UnitTesting.pdb
+C:\Users\Nael Ghannam\Desktop\BSynchro\UnitTesting\obj\Debug\net6.0\ref\UnitTesting.dll
