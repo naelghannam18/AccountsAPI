@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6TQ9SZHdO4OmEMhCQSw2NXt9/67BaRJhdzy/h5x6bynOaLaKJOoP6cstBX+/kNi/RjZAtgA7NOE/l6nhgYJ1Fg==",
+  "dgSpecHash": "B1Tsp9N/Zqn58ezEtlCl966188ZOYoPIqmVjLJkhmE3hiRppraWUXt6hkY6z0gyx3OabaesAh/VgMdfZMjPWsw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\core.tests\\core.tests.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Nael Ghannam\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Nael Ghannam\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Nael Ghannam\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Nael Ghannam\\.nuget\\packages\\fluentassertions\\6.11.0\\fluentassertions.6.11.0.nupkg.sha512",
     "C:\\Users\\Nael Ghannam\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Nael Ghannam\\.nuget\\packages\\microsoft.codecoverage\\17.6.2\\microsoft.codecoverage.17.6.2.nupkg.sha512",
     "C:\\Users\\Nael Ghannam\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
