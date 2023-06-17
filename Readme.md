@@ -1,6 +1,6 @@
 # Nael Ghannam RJP - BSynchro.
 
-Solutions: 
+# Solutions: 
 - *AccountsApi* using .Net 6, Entity Framework, Generic Repository, and SQL Server.
 - *AccountsFrontEnd* Using Angular 13.
 
@@ -111,8 +111,33 @@ Contains a form that allows for the creation of customers and list containing th
 ## Customer Component
 Dashboard-Like component that showcases the account details, transactions, and allows to make transactions between customers wit real-time changes to data.
 
-# Testability 
+# Portability
+The backend project supports docker with a basic Configuration;
 
+# CI/CD
+A Basic CI/CD Pipeline can be created using github action.
+We would need a Cloud Provider such as AWS or Azure to rent a virtual machine to host the solution.
+Github actions can help in building, testing and deploying the solution.
+
+# Testability 
+I have little Knowledge of Unit Tests in .Net and No Professional Experience with it. 
+Nevertheless I did a brief research in respect with the Exercise Deadline and tried to create some Unit Tests for the Customer Service to showcase what I learned from this brief research
+
+# Launching the solution:
+
+## Backend
+
+- Clone the repo using <b>git clone https://github.com/naelghannam18/AccountsAPI.git </b>
+- If using Visual studio, build and run the web api using <b>F5</b>.
+- Otherwise you can you the CLI using the command <b>>> dotnet run</b>
+- The web API will run on <b>Https://localhost:7009</b>
+- Swagger Developer page will also be available in development mode.
+
+## Frontend
+-	Clone the Repo using <b>git clone https://github.com/naelghannam18/AccountsFrontEnd.git</b>
+-	Inside the repo run <b>npm i</b> to install packages
+-	run <b>ng serve</b> to run the application in development mode.
+-	run <b>npm run build</b> to create an optimized build file and run it using <b>serve -s ./build</b>
 
 # Final Notes
 Scaling such an application would require a few more features to implement such as:
@@ -121,3 +146,7 @@ Scaling such an application would require a few more features to implement such 
 - Add Authentication and Authorization. We Can use .Net Identity using JWT Tokens to ensure Endpoint Security.
 - More advanced approach into Error Handling. 
 - Logging. 
+
+# Looking forward for you feedback!
+
+
