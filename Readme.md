@@ -7,6 +7,7 @@ Solutions:
 # Backend
 ## Architecture
 The Application Backend Structure was created following Clean-Architecture Approach.
+```
 ├───AccountsApi
 │   ├───Controllers
 │   ├───ExceptionHandler
@@ -30,6 +31,7 @@ The Application Backend Structure was created following Clean-Architecture Appro
 └───Infrastructure
     ├───Mappings
     └───Repositories
+```
 
 
 ## Database Design
