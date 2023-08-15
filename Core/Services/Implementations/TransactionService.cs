@@ -3,7 +3,7 @@ using Core.Services.Contracts;
 using Domain.DTOs;
 using Domain.Exceptions;
 using Domain.Models;
-using Infrastructure.Repositories;
+using Infrastructure.Repositories.Contracts;
 using System.Net;
 
 #endregion
@@ -12,27 +12,28 @@ namespace Core.Services.Implementations;
 public class TransactionService : ITransactionService
 {
     #region Private Read only Fields
-    private readonly IGenericRepository<Transaction> Repository;
-    private readonly IGenericRepository<Account> AccountRepository;
-    #endregion
+    private readonly ITransactionsRepository TransactionsRepository;
+    private readonly IAccountsRepository AccountRepository;
 
-    #region Constructor
-    public TransactionService(IGenericRepository<Transaction> repo, IGenericRepository<Account> accountRepo)
+    public TransactionService(ITransactionsRepository transactionsRepository, IAccountsRepository accountRepository)
     {
-        Repository = repo;
-        AccountRepository = accountRepo;
+        TransactionsRepository = transactionsRepository;
+        AccountRepository = accountRepository;
     }
     #endregion
 
-    #region Get All Transactions
-    public async Task<Response<List<TransactionDTO>>> GetAllTransactions(int accountId)
-    {
-        var queryableResult = (await Repository.GetAll());
+    #region Constructor
 
-        var result = queryableResult
-          .Where(t => t.SenderId == accountId || t.ReceiverId == accountId)
-          .Select(Selector())
-          .ToList();
+    #endregion
+
+    #region Get All Transactions
+    public async Task<Response<List<TransactionDTO>>> GetAllTransactions(string accountId)
+    {
+        var result =
+            (await TransactionsRepository
+            .Get(t => t.SenderId.Equals(accountId) || t.ReceiverId.Equals(accountId)))
+            .Select(Selector())
+            .ToList();
 
         return new()
         {
@@ -43,11 +44,9 @@ public class TransactionService : ITransactionService
     #endregion
 
     #region Get Transaction By ID
-    public async Task<Response<TransactionDTO>> GetTransactionById(int id)
+    public async Task<Response<TransactionDTO>> GetTransactionById(string id)
     {
-        var result = (await Repository.GetById(id))
-            .Select(Selector())
-            .FirstOrDefault();
+        var result = Selector().Invoke(await TransactionsRepository.GetById(id));
 
         if (result is not null)
         {
@@ -69,12 +68,12 @@ public class TransactionService : ITransactionService
     #endregion
 
     #region Create Transaction
-    public async Task<Response<int>> CreateTransaction(TransactionDTO request)
+    public async Task<Response<string>> CreateTransaction(TransactionDTO request)
     {
         if (request is null) return new() { Status = HttpStatusCode.BadRequest, Message = "Please Provide Values" };
 
-        var sender = (await AccountRepository.GetById(request.SenderId)).FirstOrDefault();
-        var receiver = (await AccountRepository.GetById(request.ReceiverId)).FirstOrDefault();
+        var sender = await AccountRepository.GetById(request.SenderId);
+        var receiver = await AccountRepository.GetById(request.ReceiverId);
 
         if (sender is null || receiver is null)
         {
@@ -92,13 +91,7 @@ public class TransactionService : ITransactionService
             SenderId = request.SenderId,
             ReceiverId = request.ReceiverId,
         };
-        var result = await Repository.Create(entity);
-
-        sender.Balance -= entity.Amount;
-        receiver.Balance += entity.Amount;
-
-        await AccountRepository.Update(sender);
-        await AccountRepository.Update(receiver);
+        var result = await TransactionsRepository.Create(entity);
 
         return new()
         {
@@ -109,9 +102,9 @@ public class TransactionService : ITransactionService
     #endregion
 
     #region Delete Transaction
-    public async Task DeleteTransaction(params int[] ids)
+    public async Task DeleteTransaction(params string[] ids)
     {
-        await Repository.Delete(ids: ids);
+        await TransactionsRepository.Delete(ids: ids);
     }
     #endregion
 
@@ -124,7 +117,7 @@ public class TransactionService : ITransactionService
             CreatedDate = entity.CreatedDate,
             Id = entity.Id,
             ReceiverId = entity.ReceiverId,
-            SenderId = entity.ReceiverId
+            SenderId = entity.SenderId
         };
     }
 

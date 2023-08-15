@@ -2,7 +2,7 @@
 using Core.Services.Contracts;
 using Domain.DTOs;
 using Microsoft.AspNetCore.Mvc;
-using System.Net; 
+using System.Net;
 #endregion
 
 namespace AccountsApi.Controllers
@@ -25,8 +25,8 @@ namespace AccountsApi.Controllers
         #region Web Actions
         #region Get All Customer Accounts
         [HttpGet]
-        [Route("customer/{customerId:int:min(1)}")]
-        public async Task<ActionResult<List<AccountDTO>>> GetAllAccounts(int customerId)
+        [Route("customer/{customerId}")]
+        public async Task<ActionResult<List<AccountDTO>>> GetAllAccounts(string customerId)
         {
             var result = await AccountService.GetAllAccounts(customerId);
             return Ok(result.Data);
@@ -35,8 +35,8 @@ namespace AccountsApi.Controllers
 
         #region Get Account By Id
         [HttpGet]
-        [Route("{accountId:int:min(1)}", Name = "GetAccountById")]
-        public async Task<ActionResult<AccountDTO>> GetAccountById(int accountId)
+        [Route("{accountId}", Name = "GetAccountById")]
+        public async Task<ActionResult<AccountDTO>> GetAccountById(string accountId)
         {
             var result = await AccountService.GetAccountById(accountId);
             return result.Status switch
@@ -64,7 +64,7 @@ namespace AccountsApi.Controllers
         #region Delete Accounts
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteAccounts(int[] ids)
+        public async Task<ActionResult> DeleteAccounts(string[] ids)
         {
             await AccountService.DeleteAccounts(ids);
             return NoContent();

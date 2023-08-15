@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Nael Ghannam\\.nuget\\packages\\": {}
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\Extensions.csproj",
+      "projectUniqueName": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\Extensions.csproj",
       "projectName": "Extensions",
-      "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\Extensions.csproj",
-      "packagesPath": "C:\\Users\\Nael Ghannam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\obj\\",
+      "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\Extensions.csproj",
+      "packagesPath": "C:\\Users\\n.ghannam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nael Ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\n.ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

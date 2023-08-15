@@ -1,39 +1,39 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using Core.Services.Contracts;
 using Domain.DTOs;
 using Domain.Models;
-using Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
+using Infrastructure.Repositories.Contracts;
 
 namespace Core.Services.Implementations;
 
 public class AccountService : IAccountService
 {
     #region Private Read only Fields
-    private readonly IGenericRepository<Account> Repository;
-    private readonly IGenericRepository<Transaction> TransactionRepository;
+    private readonly IAccountsRepository AccountsRepository;
+    private readonly ITransactionsRepository TransactionsRepository;
+    private readonly ICustomersRepository CustomersRepository;
     private readonly IMapper Mapper;
-    #endregion
 
-    #region Constructor
-    public AccountService(IGenericRepository<Account> repo, IGenericRepository<Transaction> transactionRepo, IMapper mapper)
+    public AccountService(IAccountsRepository accountsRepository, ITransactionsRepository transactionsRepository, IMapper mapper, ICustomersRepository customersRepository)
     {
-        Repository = repo;
-        TransactionRepository = transactionRepo;
+        AccountsRepository = accountsRepository;
+        TransactionsRepository = transactionsRepository;
         Mapper = mapper;
+        CustomersRepository = customersRepository;
     }
     #endregion
 
+    #region Constructor
+
+    #endregion
+
     #region Get All Accounts
-    public async Task<Response<List<AccountDTO>>> GetAllAccounts(int customerId)
+    public async Task<Response<List<AccountDTO>>> GetAllAccounts(string customerId)
     {
-        var result = (await Repository.GetAll())
-          .Include(a => a.ReceivedTransactions)
-          .Include(a => a.SentTransactions)
-          .Where(a => a.CustomerId == customerId)
-          .Select(a => Mapper.Map<AccountDTO>(a))
-          .ToList();
+        var result = (await AccountsRepository.Get(a => a.CustomerId == customerId && !a.IsRemoved))
+            .Select(a => Mapper.Map<AccountDTO>(a))
+            .ToList();
 
         return new()
         {
@@ -44,9 +44,9 @@ public class AccountService : IAccountService
     #endregion
 
     #region Get Account By ID
-    public async Task<Response<AccountDTO>> GetAccountById(int id)
+    public async Task<Response<AccountDTO>> GetAccountById(string id)
     {
-        var result = (await Repository.GetById(id)).Include(a => a.SentTransactions).Include(a => a.ReceivedTransactions).FirstOrDefault();
+        var result = await AccountsRepository.GetById(id);
         if (result is not null)
         {
             return new()
@@ -67,28 +67,32 @@ public class AccountService : IAccountService
     #endregion
 
     #region Create Account
-    public async Task<Response<int>> CreateAccount(CreateAccountDTO request)
+    public async Task<Response<string>> CreateAccount(CreateAccountDTO request)
     {
         if (request is null) return new() { Status = HttpStatusCode.BadRequest, Message = "Please Provide Values" };
 
+        var customer = await CustomersRepository.GetById(request.CustomerId);
+
+        if (customer is null) { return new() { Status = HttpStatusCode.BadRequest, Message = "Customer DOes Not exist" }; }
 
         var entity = new Account()
         {
             Balance = 0 + request.InitialCredit,
-            CustomerId = request.CustomerId,
+            CustomerId = customer.Id,
+            Customer = customer,
+            SentTransactions = new(),
+            ReceivedTransactions = new()
         };
-        var result = await Repository.Create(entity);
 
         if (request.InitialCredit > 0)
         {
             var transaction = new Transaction()
             {
                 Amount = request.InitialCredit,
-                SenderId = result.Id,
-                ReceiverId = result.Id,
             };
-            await TransactionRepository.Create(transaction);
+            entity.ReceivedTransactions.Add(transaction);
         }
+        var result = await AccountsRepository.Create(entity);
 
         return new()
         {
@@ -101,9 +105,9 @@ public class AccountService : IAccountService
     #endregion
 
     #region Delete Account
-    public async Task DeleteAccounts(params int[] ids)
+    public async Task DeleteAccounts(params string[] ids)
     {
-        await Repository.Delete(ids: ids);
+        await AccountsRepository.Delete(ids: ids);
     }
     #endregion
 }

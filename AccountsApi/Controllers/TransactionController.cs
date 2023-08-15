@@ -23,8 +23,8 @@ namespace AccountsApi.Controllers
         #region Web Actions
         #region Get Transactions By Account
         [HttpGet]
-        [Route("/api/accounts/{accountId:int:min(1)}/Transactions")]
-        public async Task<ActionResult<List<TransactionDTO>>> GetTransactionsByAccount(int accountId)
+        [Route("/api/accounts/{accountId}/Transactions")]
+        public async Task<ActionResult<List<TransactionDTO>>> GetTransactionsByAccount(string accountId)
         {
             var results = await TransactionService.GetAllTransactions(accountId);
 
@@ -34,8 +34,8 @@ namespace AccountsApi.Controllers
 
         #region Get Transaction By Id
         [HttpGet]
-        [Route("{id:int:min(1)}", Name = "GetTransactionById")]
-        public async Task<ActionResult<TransactionDTO>> GetTransaction(int id)
+        [Route("{id}", Name = "GetTransactionById")]
+        public async Task<ActionResult<TransactionDTO>> GetTransaction(string id)
         {
             var result = await TransactionService.GetTransactionById(id);
 
@@ -50,7 +50,7 @@ namespace AccountsApi.Controllers
 
         #region Create Transaction
         [HttpPost]
-        public async Task<ActionResult> CreateTransaction([FromBody]TransactionDTO request)
+        public async Task<ActionResult> CreateTransaction([FromBody] TransactionDTO request)
         {
             var result = await TransactionService.CreateTransaction(request);
 
@@ -64,7 +64,7 @@ namespace AccountsApi.Controllers
 
         #region Delete Transactions
         [HttpDelete]
-        public async Task<ActionResult> DeleteTransactions(int[] ids)
+        public async Task<ActionResult> DeleteTransactions(string[] ids)
         {
             await TransactionService.DeleteTransaction(ids);
             return NoContent();
