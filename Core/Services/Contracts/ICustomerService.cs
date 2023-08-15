@@ -5,10 +5,10 @@ namespace Core.Services.Contracts
 {
     public interface ICustomerService
     {
-        Task<Response<int>> CreateCustomer(CreateCustomerDTO request);
-        Task DeleteCustomers(params int[] ids);
+        Task<Response<string>> CreateCustomer(CreateCustomerDTO request);
+        Task DeleteCustomers(params string[] ids);
         Task<Response<List<CustomerDTO>>> GetAllCustomers();
-        Task<Response<CustomerDTO>> GetCustomerById(int id);
+        Task<Response<CustomerDTO>> GetCustomerById(string id);
         Task<Response<bool>> UpdateCustomer(UpdateCustomerDTO request);
     }
 }

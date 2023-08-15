@@ -4,8 +4,7 @@ using Core.Services.Contracts;
 using Domain.DTOs;
 using Domain.Exceptions;
 using Domain.Models;
-using Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
+using Infrastructure.Repositories.Contracts;
 using System.Net;
 #endregion
 
@@ -14,12 +13,12 @@ namespace Core.Services.Implementations;
 public class CustomerService : ICustomerService
 {
     #region Private Read only Fields
-    private readonly IGenericRepository<Customer> Repository;
+    private readonly ICustomersRepository Repository;
     private readonly IMapper Mapper;
     #endregion
 
     #region Constructor
-    public CustomerService(IGenericRepository<Customer> repo, IMapper mapper)
+    public CustomerService(ICustomersRepository repo, IMapper mapper)
     {
         Repository = repo;
         Mapper = mapper;
@@ -31,8 +30,6 @@ public class CustomerService : ICustomerService
     public async Task<Response<List<CustomerDTO>>> GetAllCustomers()
     {
         var result = (await Repository.GetAll())
-          .Include(c => c.Account).ThenInclude(a => a.SentTransactions)
-          .Include(c => c.Account).ThenInclude(a => a.ReceivedTransactions)
           .Select(c => Mapper.Map<CustomerDTO>(c))
           .ToList();
 
@@ -45,13 +42,10 @@ public class CustomerService : ICustomerService
     #endregion
 
     #region Get Customer By ID
-    public async Task<Response<CustomerDTO>> GetCustomerById(int id)
+    public async Task<Response<CustomerDTO>> GetCustomerById(string id)
     {
-        var result = (await Repository.GetById(id))
-            .Include(c => c.Account).ThenInclude(a => a.SentTransactions)
-            .Include(c => c.Account).ThenInclude(a => a.ReceivedTransactions)
-            .Select(c => Mapper.Map<CustomerDTO>(c))
-            .FirstOrDefault();
+        var result = Mapper.Map<CustomerDTO>(await Repository.GetById(id));
+
         if (result is not null)
         {
             return new()
@@ -72,7 +66,7 @@ public class CustomerService : ICustomerService
     #endregion
 
     #region Create Customer
-    public async Task<Response<int>> CreateCustomer(CreateCustomerDTO request)
+    public async Task<Response<string>> CreateCustomer(CreateCustomerDTO request)
     {
         if (request is null) return new() { Status = HttpStatusCode.BadRequest, Message = "Please Provide Values" };
 
@@ -88,7 +82,7 @@ public class CustomerService : ICustomerService
     #endregion
 
     #region Delete Customers
-    public async Task DeleteCustomers(params int[] ids)
+    public async Task DeleteCustomers(params string[] ids)
     {
         await Repository.Delete(ids: ids);
     }
@@ -99,7 +93,7 @@ public class CustomerService : ICustomerService
     {
         if (request is null) return new() { Status = HttpStatusCode.BadRequest, Message = "Please Provide Value" };
 
-        var customer = (await Repository.GetById(request.Id)).FirstOrDefault();
+        var customer = await Repository.GetById(request.Id);
         if (customer is not null)
         {
             customer.Name = request.Name;

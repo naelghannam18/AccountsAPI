@@ -39,8 +39,8 @@ namespace AccountsApi.Controllers
         // GET /api/customers/{id}
         #region Get By Id
         [HttpGet]
-        [Route("{id:int:min(1)}", Name = "GetById")]
-        public async Task<ActionResult<List<CustomerDTO>>> GetById(int id)
+        [Route("{id}", Name = "GetById")]
+        public async Task<ActionResult<List<CustomerDTO>>> GetById(string id)
         {
             var result = await Service.GetCustomerById(id);
 
@@ -71,7 +71,7 @@ namespace AccountsApi.Controllers
         // DELETE /api/customers
         #region Delete
         [HttpDelete]
-        public async Task<ActionResult> DeleteCustomers(int[] ids)
+        public async Task<ActionResult> DeleteCustomers(string[] ids)
         {
             await Service.DeleteCustomers(ids);
             return NoContent();

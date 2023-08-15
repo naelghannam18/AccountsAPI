@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace Domain.Models;
 
-[Index(nameof(Id))]
 public class BaseDatabaseModel : IBaseDatabaseModel
 {
-    [Key]
-    public int Id { get; set; }
+    [BsonId]
+    [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+    public string Id { get; set; }
 
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 

@@ -40,3 +40,22 @@ C:\Users\Nael Ghannam\Desktop\BSynchro\API\Core\obj\Debug\net6.0\Core.dll
 C:\Users\Nael Ghannam\Desktop\BSynchro\API\Core\obj\Debug\net6.0\refint\Core.dll
 C:\Users\Nael Ghannam\Desktop\BSynchro\API\Core\obj\Debug\net6.0\Core.pdb
 C:\Users\Nael Ghannam\Desktop\BSynchro\API\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Core.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Domain.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Extensions.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Domain.pdb
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\bin\Debug\net6.0\Extensions.pdb
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.csproj.CopyComplete
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Core\obj\Debug\net6.0\ref\Core.dll
