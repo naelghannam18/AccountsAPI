@@ -1,7 +1,4 @@
-﻿
-using Core.Services.Contracts;
-using Core.Services.Implementations;
-using Domain.Configurations;
+﻿using Domain.Configurations;
 using Infrastructure.Mappings;
 using Infrastructure.Repositories.Contracts;
 using Infrastructure.Repositories.Implementations;
@@ -13,7 +10,7 @@ public static class RegistrationService
     public static void RegisterServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddEndpointsApiExplorer();;
         builder.Services.AddSwaggerGen();
 
         builder.RegisterConfigurationClasses();
@@ -36,10 +33,11 @@ public static class RegistrationService
 
     private static void RegisterApplicationServices(this WebApplicationBuilder builder)
     {
+        builder.Services.AddMediatR(config =>
+        {
+            config.RegisterServicesFromAssembly(Application.AssemblyReference.ApplicationAssemblyReference);
+        });
         builder.Services.AddAutoMapper(typeof(Mappings));
-        builder.Services.AddScoped<ICustomerService, CustomerService>();
-        builder.Services.AddScoped<ITransactionService, TransactionService>();
-        builder.Services.AddScoped<IAccountService, AccountService>();
     }
 
     private static void RegisterConfigurationClasses(this WebApplicationBuilder builder)

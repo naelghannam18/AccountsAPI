@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Onqn0o+1GyVp/wE8toYOELret7HO4ZxQz4ScCkaBD9t8IJTXHP2b6hT/grdnrZXnO0V56D4qUrIAF+L2ZJrwZw==",
+  "dgSpecHash": "xGG8xlOlbOudwFkd/uUa5QHRoDP3vL0Jou9q81HXjV2fmpnpJS+EjHU3cdmhMNQzJEEJtdI1ixH533ZW57YYJw==",
   "success": true,
   "projectFilePath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\AccountsApi\\AccountsApi.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,10 @@
     "C:\\Users\\n.ghannam\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.7\\microsoft.entityframeworkcore.7.0.7.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.7\\microsoft.entityframeworkcore.abstractions.7.0.7.nupkg.sha512",

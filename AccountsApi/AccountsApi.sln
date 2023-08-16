@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33717.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountsApi", "AccountsApi.csproj", "{612178BF-F97B-4B85-A5EC-7235837E99E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "..\Core\Core.csproj", "{D625AF7C-8C12-4769-96ED-4FDC71982299}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "..\Core\Application.csproj", "{D625AF7C-8C12-4769-96ED-4FDC71982299}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "..\Infrastructure\Infrastructure.csproj", "{D0378E8A-3664-4B11-8FA7-F427488829C3}"
 EndProject

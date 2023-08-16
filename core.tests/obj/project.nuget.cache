@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T0CSoCmO4Z4caeVWpkvwSBLFDAgb//P+5hkiK4oLP7WM6kkv9BSNh1ZdqaUzzQ0/466fZA/0d8jpzuaThhPkqA==",
+  "dgSpecHash": "dT1aIqYJbw71uhpw728SZqwEcIoW0XyGYyVdWEDfVR0dAyJqzhZDeiAjtQ5xF8i28Kvz+zh5R6t33scj1wAiIw==",
   "success": true,
   "projectFilePath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\core.tests\\core.tests.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,9 @@
     "C:\\Users\\n.ghannam\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\fluentassertions\\6.11.0\\fluentassertions.6.11.0.nupkg.sha512",
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\microsoft.codecoverage\\17.6.2\\microsoft.codecoverage.17.6.2.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",

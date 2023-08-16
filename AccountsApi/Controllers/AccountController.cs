@@ -1,6 +1,10 @@
 ﻿#region Usings
-using Core.Services.Contracts;
+using Application.Accounts.Commands.CreateAccount;
+using Application.Accounts.Commands.DeleteAccount;
+using Application.Accounts.Queries.GetAccountById;
+using Application.Accounts.Queries.GetAllAccounts;
 using Domain.DTOs;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 #endregion
@@ -12,13 +16,13 @@ namespace AccountsApi.Controllers
     public class AccountController : ControllerBase
     {
         #region Private Read only Fields
-        private readonly IAccountService AccountService;
+        private readonly ISender Sender;
         #endregion
 
         #region Constructor
-        public AccountController(IAccountService service)
+        public AccountController(ISender sender)
         {
-            AccountService = service;
+            Sender = sender;
         }
         #endregion
 
@@ -26,9 +30,9 @@ namespace AccountsApi.Controllers
         #region Get All Customer Accounts
         [HttpGet]
         [Route("customer/{customerId}")]
-        public async Task<ActionResult<List<AccountDTO>>> GetAllAccounts(string customerId)
+        public async Task<ActionResult<List<AccountDTO>>> GetAllAccounts(string customerId, CancellationToken cancellationToken)
         {
-            var result = await AccountService.GetAllAccounts(customerId);
+            var result = await Sender.Send(new GetAllAccountsQuery(customerId), cancellationToken);
             return Ok(result.Data);
         }
         #endregion
@@ -36,37 +40,28 @@ namespace AccountsApi.Controllers
         #region Get Account By Id
         [HttpGet]
         [Route("{accountId}", Name = "GetAccountById")]
-        public async Task<ActionResult<AccountDTO>> GetAccountById(string accountId)
+        public async Task<ActionResult<AccountDTO>> GetAccountById(string accountId, CancellationToken cancellationToken)
         {
-            var result = await AccountService.GetAccountById(accountId);
-            return result.Status switch
-            {
-                HttpStatusCode.OK => Ok(result.Data),
-                HttpStatusCode.NotFound => NotFound(),
-                _ => StatusCode(500, result.Message)
-            };
+            var result = await Sender.Send(new GetAccountByIdQuery(accountId), cancellationToken);
+            return Ok(result.Data);
         }
         #endregion
 
         #region Create Account
         [HttpPost]
-        public async Task<ActionResult> CreateAccount([FromBody] CreateAccountDTO request)
+        public async Task<ActionResult> CreateAccount([FromBody] CreateAccountDTO request, CancellationToken cancellationToken)
         {
-            var result = await AccountService.CreateAccount(request);
-            return result.Status switch
-            {
-                HttpStatusCode.Created => CreatedAtRoute("GetAccountById", new { accountId = result.Data }, result.Data),
-                _ => StatusCode(500, result.Message)
-            };
+            var result = await Sender.Send(new CreateAccountCommand(request), cancellationToken);
+            return CreatedAtRoute("GetAccountById", new { accountId = result.Data }, result.Data);
         }
         #endregion
 
         #region Delete Accounts
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteAccounts(string[] ids)
+        public async Task<ActionResult> DeleteAccounts(string[] ids, CancellationToken cancellationToken)
         {
-            await AccountService.DeleteAccounts(ids);
+            await Sender.Send(new DeleteAccountCommand(ids), cancellationToken);
             return NoContent();
         }
         #endregion 

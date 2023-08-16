@@ -24,7 +24,7 @@ public class GlobalExceptionHandler
             response.ContentType = "application/json";
             response.StatusCode = ex switch
             {
-                AccountDoesNotExistError or AccountInsufficientFundsError or CustomerDoesNotExistError => (int)HttpStatusCode.BadRequest,
+                AccountDoesNotExistException or AccountInsufficientFundsException or CustomerDoesNotExistException => (int)HttpStatusCode.BadRequest,
                 _ => (int)HttpStatusCode.InternalServerError,
             };
             var result = JsonSerializer.Serialize(new { message = ex?.Message });
