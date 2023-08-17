@@ -1,8 +1,10 @@
-﻿using Domain.Configurations;
+﻿using Application.Behaviors;
+using Domain.Configurations;
+using FluentValidation;
 using Infrastructure.Mappings;
 using Infrastructure.Repositories.Contracts;
 using Infrastructure.Repositories.Implementations;
-
+using MediatR;
 namespace AccountsApi;
 
 public static class RegistrationService
@@ -25,9 +27,9 @@ public static class RegistrationService
 
     private static void RegisterRepositories(this WebApplicationBuilder builder)
     {
-        builder.Services.AddTransient<IAccountsRepository, AccountsRepository>();
-        builder.Services.AddTransient<ICustomersRepository, CustomersRepository>();
-        builder.Services.AddTransient<ITransactionsRepository, TransactionsRepository>();
+        builder.Services.AddScoped<IAccountsRepository, AccountsRepository>();
+        builder.Services.AddScoped<ICustomersRepository, CustomersRepository>();
+        builder.Services.AddScoped<ITransactionsRepository, TransactionsRepository>();
 
     }
 
@@ -37,6 +39,8 @@ public static class RegistrationService
         {
             config.RegisterServicesFromAssembly(Application.AssemblyReference.ApplicationAssemblyReference);
         });
+        builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        builder.Services.AddValidatorsFromAssembly(Application.AssemblyReference.ApplicationAssemblyReference, includeInternalTypes: true);
         builder.Services.AddAutoMapper(typeof(Mappings));
     }
 
