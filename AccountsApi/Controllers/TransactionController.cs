@@ -1,5 +1,9 @@
-﻿using Core.Services.Contracts;
+﻿using Application.Transactions.Commands.CreateTransaction;
+using Application.Transactions.Commands.DeleteTransactions;
+using Application.Transactions.Queries.GetAllAccountTransactions;
+using Application.Transactions.Queries.GetTransactionById;
 using Domain.DTOs;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -10,23 +14,23 @@ namespace AccountsApi.Controllers
     public class TransactionController : ControllerBase
     {
         #region Private Readonly Fields
-        private readonly ITransactionService TransactionService;
+        private readonly ISender Sender;
         #endregion
 
         #region Constructor
-        public TransactionController(ITransactionService service)
+        public TransactionController(ISender sender)
         {
-            TransactionService = service;
+            Sender = sender;
         }
         #endregion
 
         #region Web Actions
         #region Get Transactions By Account
         [HttpGet]
-        [Route("/api/accounts/{accountId:int:min(1)}/Transactions")]
-        public async Task<ActionResult<List<TransactionDTO>>> GetTransactionsByAccount(int accountId)
+        [Route("/api/accounts/{accountId}/Transactions")]
+        public async Task<ActionResult<List<TransactionDTO>>> GetTransactionsByAccount(string accountId, CancellationToken cancellationToken)
         {
-            var results = await TransactionService.GetAllTransactions(accountId);
+            var results = await Sender.Send(new GetAllAccountTransactionsQuery(accountId), cancellationToken);
 
             return Ok(results.Data);
         }
@@ -34,39 +38,30 @@ namespace AccountsApi.Controllers
 
         #region Get Transaction By Id
         [HttpGet]
-        [Route("{id:int:min(1)}", Name = "GetTransactionById")]
-        public async Task<ActionResult<TransactionDTO>> GetTransaction(int id)
+        [Route("{id}", Name = "GetTransactionById")]
+        public async Task<ActionResult<TransactionDTO>> GetTransaction(string id, CancellationToken cancellationToken)
         {
-            var result = await TransactionService.GetTransactionById(id);
+            var result = await Sender.Send(new GetTransactionByIdQuery(id), cancellationToken);
 
-            return result.Status switch
-            {
-                HttpStatusCode.OK => Ok(result.Data),
-                HttpStatusCode.NotFound => NotFound(),
-                _ => StatusCode(500, result.Message)
-            };
+            return Ok(result.Data);
         }
         #endregion
 
         #region Create Transaction
         [HttpPost]
-        public async Task<ActionResult> CreateTransaction([FromBody]TransactionDTO request)
+        public async Task<ActionResult> CreateTransaction([FromBody] TransactionDTO request, CancellationToken cancellationToken)
         {
-            var result = await TransactionService.CreateTransaction(request);
+            var result = await Sender.Send(new CreateTransactionCommand(request), cancellationToken);
 
-            return result.Status switch
-            {
-                HttpStatusCode.Created => CreatedAtRoute("GetTransactionById", new { id = result.Data }, result.Data),
-                _ => StatusCode(500, result.Message)
-            };
+            return CreatedAtRoute("GetTransactionById", new { id = result.Data }, result.Data);
         }
         #endregion
 
         #region Delete Transactions
         [HttpDelete]
-        public async Task<ActionResult> DeleteTransactions(int[] ids)
+        public async Task<ActionResult> DeleteTransactions(string[] ids, CancellationToken cancellationToken)
         {
-            await TransactionService.DeleteTransaction(ids);
+            await Sender.Send(new DeleteTransactionsCommand(ids), cancellationToken);
             return NoContent();
         }
         #endregion

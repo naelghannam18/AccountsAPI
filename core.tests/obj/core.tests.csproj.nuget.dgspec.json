@@ -1,109 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\core.tests\\core.tests.csproj": {}
+    "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\core.tests\\core.tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Context\\Context.csproj": {
+    "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\core.tests\\core.tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Context\\Context.csproj",
-        "projectName": "Context",
-        "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Context\\Context.csproj",
-        "packagesPath": "C:\\Users\\Nael Ghannam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Context\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Nael Ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\Domain.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.Abstractions": {
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.7, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.7, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\core.tests\\core.tests.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\core.tests\\core.tests.csproj",
+        "projectUniqueName": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\core.tests\\core.tests.csproj",
         "projectName": "core.tests",
-        "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\core.tests\\core.tests.csproj",
-        "packagesPath": "C:\\Users\\Nael Ghannam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\core.tests\\obj\\",
+        "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\core.tests\\core.tests.csproj",
+        "packagesPath": "C:\\Users\\n.ghannam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\core.tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nael Ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\n.ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -117,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Core\\Core.csproj"
+              "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\Application.csproj": {
+                "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\Application.csproj"
               }
             }
           }
@@ -186,21 +97,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Core\\Core.csproj": {
+    "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Core\\Core.csproj",
-        "projectName": "Core",
-        "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Nael Ghannam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Core\\obj\\",
+        "projectUniqueName": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\Application.csproj",
+        "packagesPath": "C:\\Users\\n.ghannam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nael Ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\n.ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -214,8 +125,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -229,6 +140,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.7.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -245,21 +166,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\Domain.csproj": {
+    "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Nael Ghannam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\n.ghannam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nael Ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\n.ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -285,9 +206,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "MongoDB.Driver": {
               "target": "Package",
-              "version": "[7.0.7, )"
+              "version": "[2.21.0, )"
             }
           },
           "imports": [
@@ -306,21 +227,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\Extensions.csproj": {
+    "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\Extensions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\Extensions.csproj",
+        "projectUniqueName": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\Extensions.csproj",
         "projectName": "Extensions",
-        "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\Extensions.csproj",
-        "packagesPath": "C:\\Users\\Nael Ghannam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\obj\\",
+        "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\Extensions.csproj",
+        "packagesPath": "C:\\Users\\n.ghannam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nael Ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\n.ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -361,21 +282,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Nael Ghannam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\n.ghannam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nael Ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\n.ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -389,14 +310,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Context\\Context.csproj": {
-                "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Context\\Context.csproj"
+              "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Domain\\Domain.csproj"
-              },
-              "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\Extensions.csproj": {
-                "projectPath": "C:\\Users\\Nael Ghannam\\Desktop\\BSynchro\\API\\Extensions\\Extensions.csproj"
+              "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\Extensions.csproj": {
+                "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Extensions\\Extensions.csproj"
               }
             }
           }
@@ -414,6 +332,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -432,7 +354,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

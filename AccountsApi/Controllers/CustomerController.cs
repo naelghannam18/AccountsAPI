@@ -1,7 +1,11 @@
-﻿using Core.Services.Contracts;
+﻿using Application.Customers.Commands.CreateCustomer;
+using Application.Customers.Commands.DeleteCustomers;
+using Application.Customers.Commands.UpdateCustomer;
+using Application.Customers.Queries.GetAllCustomers;
+using Application.Customers.Queries.GetCustomerById;
 using Domain.DTOs;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 
 namespace AccountsApi.Controllers
 {
@@ -10,15 +14,12 @@ namespace AccountsApi.Controllers
     public class CustomerController : ControllerBase
     {
         #region Private Readonly Properties
-        private ICustomerService Service { get; set; }
+        private readonly ISender Sender;
 
         #endregion
-
+        public CustomerController(ISender sender) => Sender = sender;
         #region Constructor
-        public CustomerController(ICustomerService service)
-        {
-            Service = service;
-        }
+
         #endregion
 
         #region Web Actions
@@ -26,54 +27,41 @@ namespace AccountsApi.Controllers
         // GET /api/customers
         #region Get All
         [HttpGet]
-        public async Task<ActionResult<List<CustomerDTO>>> GetAll()
+        public async Task<ActionResult<List<CustomerDTO>>> GetAll(CancellationToken cancellationToken)
         {
-            var result = await Service.GetAllCustomers();
-            return result.Status switch
-            {
-                HttpStatusCode.OK => Ok(result.Data)
-            };
+            var result = await Sender.Send(new GetAllCustomersQuery(), cancellationToken);
+            return Ok(result.Data);
         }
         #endregion
 
         // GET /api/customers/{id}
         #region Get By Id
         [HttpGet]
-        [Route("{id:int:min(1)}", Name = "GetById")]
-        public async Task<ActionResult<List<CustomerDTO>>> GetById(int id)
+        [Route("{id}", Name = "GetById")]
+        public async Task<ActionResult<List<CustomerDTO>>> GetById(string id, CancellationToken cancellationToken)
         {
-            var result = await Service.GetCustomerById(id);
-
-            return result.Status switch
-            {
-                HttpStatusCode.OK => Ok(result.Data),
-                HttpStatusCode.NotFound => NotFound(),
-                HttpStatusCode.BadRequest => BadRequest(result.Message)
-            };
+            var result = await Sender.Send(new GetCustomerByIdQuery(id), cancellationToken);
+            return Ok(result.Data);
         }
         #endregion
 
         // POST /api/customers
         #region Create
         [HttpPost]
-        public async Task<ActionResult> Create([FromBody] CreateCustomerDTO request)
+        public async Task<ActionResult> Create([FromBody] CreateCustomerDTO request, CancellationToken cancellationToken)
         {
-            var result = await Service.CreateCustomer(request);
+            var result = await Sender.Send(new CreateCustomerCommand(request), cancellationToken);
 
-            return result.Status switch
-            {
-                HttpStatusCode.Created => CreatedAtRoute("GetById", new { id = result.Data }, result.Data),
-                _ => StatusCode(500, result.Message)
-            };
+            return CreatedAtRoute("GetById", new { id = result.Data }, result.Data);
         }
         #endregion
 
         // DELETE /api/customers
         #region Delete
         [HttpDelete]
-        public async Task<ActionResult> DeleteCustomers(int[] ids)
+        public async Task<ActionResult> DeleteCustomers(string[] ids, CancellationToken cancellationToken)
         {
-            await Service.DeleteCustomers(ids);
+            await Sender.Send(new DeleteCustomersCommand(ids), cancellationToken);
             return NoContent();
         }
         #endregion
@@ -81,16 +69,10 @@ namespace AccountsApi.Controllers
         // PUT /api/customers
         #region Update
         [HttpPut]
-        public async Task<ActionResult> Update(UpdateCustomerDTO request)
+        public async Task<ActionResult> Update(UpdateCustomerDTO request, CancellationToken cancellationToken)
         {
-            var result = await Service.UpdateCustomer(request);
-
-            return result.Status switch
-            {
-                HttpStatusCode.NoContent => NoContent(),
-                HttpStatusCode.NotFound => NotFound(),
-                _ => StatusCode(500, result.Message)
-            };
+            await Sender.Send(new UpdateCustomerCommand(request), cancellationToken);
+            return Ok();
         }
         #endregion 
 

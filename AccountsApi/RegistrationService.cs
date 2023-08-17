@@ -1,11 +1,10 @@
-﻿
-using Context.Context;
-using Core.Services.Contracts;
-using Core.Services.Implementations;
+﻿using Application.Behaviors;
+using Domain.Configurations;
+using FluentValidation;
 using Infrastructure.Mappings;
-using Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
-
+using Infrastructure.Repositories.Contracts;
+using Infrastructure.Repositories.Implementations;
+using MediatR;
 namespace AccountsApi;
 
 public static class RegistrationService
@@ -13,9 +12,10 @@ public static class RegistrationService
     public static void RegisterServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddControllers();
-        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddEndpointsApiExplorer();;
         builder.Services.AddSwaggerGen();
 
+        builder.RegisterConfigurationClasses();
         builder.RegisterDatabaseServices();
         builder.RegisterRepositories();
         builder.RegisterApplicationServices();
@@ -23,19 +23,29 @@ public static class RegistrationService
 
     private static void RegisterDatabaseServices(this WebApplicationBuilder builder)
     {
-        builder.Services.AddDbContext<AccountsContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
     }
 
     private static void RegisterRepositories(this WebApplicationBuilder builder)
     {
-        builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+        builder.Services.AddScoped<IAccountsRepository, AccountsRepository>();
+        builder.Services.AddScoped<ICustomersRepository, CustomersRepository>();
+        builder.Services.AddScoped<ITransactionsRepository, TransactionsRepository>();
+
     }
 
     private static void RegisterApplicationServices(this WebApplicationBuilder builder)
     {
+        builder.Services.AddMediatR(config =>
+        {
+            config.RegisterServicesFromAssembly(Application.AssemblyReference.ApplicationAssemblyReference);
+        });
+        builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        builder.Services.AddValidatorsFromAssembly(Application.AssemblyReference.ApplicationAssemblyReference, includeInternalTypes: true);
         builder.Services.AddAutoMapper(typeof(Mappings));
-        builder.Services.AddScoped<ICustomerService, CustomerService>();
-        builder.Services.AddScoped<ITransactionService, TransactionService>();
-        builder.Services.AddScoped<IAccountService, AccountService>();
+    }
+
+    private static void RegisterConfigurationClasses(this WebApplicationBuilder builder)
+    {
+        builder.Services.Configure<MongoDbConfiguration>(builder.Configuration.GetSection("MongoDB"));
     }
 }
