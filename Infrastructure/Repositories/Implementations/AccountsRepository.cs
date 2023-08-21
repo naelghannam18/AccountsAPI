@@ -1,4 +1,4 @@
-﻿using Domain.Configurations;
+﻿using Configurations;
 using Domain.Models;
 using Infrastructure.Repositories.Contracts;
 using Microsoft.Extensions.Options;

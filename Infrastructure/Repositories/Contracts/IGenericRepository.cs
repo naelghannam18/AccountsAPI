@@ -1,4 +1,4 @@
-﻿using Domain.Models;
+﻿using Domain.Abstractions.BaseDatabaseModel;
 using System.Linq.Expressions;
 
 namespace Infrastructure.Repositories.Contracts;

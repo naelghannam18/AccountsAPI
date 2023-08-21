@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using System.Net;
-using Domain.DTOs;
+using Application.DTOs;
 using Domain.Models;
-using Infrastructure.Repositories.Implementations;
 using MediatR;
 using Infrastructure.Repositories.Contracts;
 

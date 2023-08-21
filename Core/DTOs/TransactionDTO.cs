@@ -1,8 +1,4 @@
-﻿
-using System.Text.Json.Serialization;
-
-namespace Domain.DTOs;
-
+﻿namespace Application.DTOs;
 public class TransactionDTO
 {
     public string? Id { get; set; }

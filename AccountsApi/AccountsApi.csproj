@@ -20,8 +20,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Configurations\Configurations.csproj" />
     <ProjectReference Include="..\Core\Application.csproj" />
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\.editorconfig" />
   </ItemGroup>
 
 </Project>

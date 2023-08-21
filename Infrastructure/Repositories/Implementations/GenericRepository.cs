@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
-using Domain.Configurations;
-using Domain.Models;
+using Configurations;
+using Domain.Abstractions.BaseDatabaseModel;
 using Infrastructure.Repositories.Contracts;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -9,12 +9,15 @@ namespace Infrastructure.Repositories.Implementations;
 
 public abstract class GenericRepository<TModel> : IGenericRepository<TModel> where TModel : class, IBaseDatabaseModel
 {
-    protected abstract string CollectionName {get; }
+    #region Protected Properties
+    protected abstract string CollectionName { get; }
 
     protected IMongoCollection<TModel> Collection;
 
     protected IOptions<MongoDbConfiguration> MongoDbConfiguration;
+    #endregion
 
+    #region Constructor
     public GenericRepository(IOptions<MongoDbConfiguration> mongoConfiguration)
     {
         MongoDbConfiguration = mongoConfiguration;
@@ -22,7 +25,9 @@ public abstract class GenericRepository<TModel> : IGenericRepository<TModel> whe
         var db = client.GetDatabase(MongoDbConfiguration.Value.DatabaseName);
         Collection = db.GetCollection<TModel>(CollectionName);
     }
+    #endregion
 
+    #region Public Methods
     public async virtual Task<TModel> Create(TModel entity)
     {
         await Collection.InsertOneAsync(entity);
@@ -55,6 +60,6 @@ public abstract class GenericRepository<TModel> : IGenericRepository<TModel> whe
     {
         var filter = Builders<TModel>.Filter.Eq("Id", entity.Id);
         await Collection.FindOneAndReplaceAsync(filter, entity);
-    }
-
+    } 
+    #endregion
 }

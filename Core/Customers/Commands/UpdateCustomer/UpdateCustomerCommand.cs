@@ -1,4 +1,4 @@
-﻿using Domain.DTOs;
+﻿using Application.DTOs;
 using MediatR;
 
 namespace Application.Customers.Commands.UpdateCustomer;

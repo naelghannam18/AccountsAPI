@@ -1,4 +1,4 @@
-﻿namespace Domain.Configurations;
+﻿namespace Configurations;
 
 public class MongoDbConfiguration
 {

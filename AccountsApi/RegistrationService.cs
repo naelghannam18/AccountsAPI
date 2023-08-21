@@ -1,10 +1,11 @@
 ﻿using Application.Behaviors;
-using Domain.Configurations;
 using FluentValidation;
-using Infrastructure.Mappings;
+using Application.Mappings;
 using Infrastructure.Repositories.Contracts;
 using Infrastructure.Repositories.Implementations;
 using MediatR;
+using Configurations;
+
 namespace AccountsApi;
 
 public static class RegistrationService

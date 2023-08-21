@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Domain.Configurations;
+﻿using Configurations;
 using Domain.Models;
 using Infrastructure.Repositories.Contracts;
 using Microsoft.Extensions.Options;
@@ -29,7 +28,7 @@ public class TransactionsRepository : GenericRepository<Transaction>, ITransacti
                     .GetCollection<Account>("accounts");
                 // Get Sender and receiver
                 var sender = (await accountsCollection.FindAsync(a => a.Id == entity.SenderId)).First();
-                var receiver = (await accountsCollection.FindAsync(a => a.Id == entity.ReceiverId)).First(); 
+                var receiver = (await accountsCollection.FindAsync(a => a.Id == entity.ReceiverId)).First();
 
                 // Save the transactions
                 await Collection.InsertOneAsync(entity);

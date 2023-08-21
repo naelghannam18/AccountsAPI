@@ -376,6 +376,16 @@
           "lib/net6.0/ZstdSharp.dll": {}
         }
       },
+      "Configurations/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Configurations.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Configurations.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1045,6 +1055,11 @@
         "zstdsharp.port.nuspec"
       ]
     },
+    "Configurations/1.0.0": {
+      "type": "project",
+      "path": "../Configurations/Configurations.csproj",
+      "msbuildProject": "../Configurations/Configurations.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -1059,6 +1074,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 12.0.1",
+      "Configurations >= 1.0.0",
       "Domain >= 1.0.0",
       "Extensions >= 1.0.0",
       "Microsoft.Extensions.Options >= 7.0.0"
@@ -1091,6 +1107,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj": {
+              "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj"
+            },
             "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj"
             },

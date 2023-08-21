@@ -1,6 +1,7 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using Domain.Abstractions.BaseDatabaseModel;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace Domain.Models;
+namespace Domain.Implementations.BaseDatabaseModel;
 
 public class BaseDatabaseModel : IBaseDatabaseModel
 {

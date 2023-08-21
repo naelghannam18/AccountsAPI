@@ -1,0 +1,11 @@
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\bin\Debug\net6.0\Configurations.deps.json
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\bin\Debug\net6.0\Configurations.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\bin\Debug\net6.0\Configurations.pdb
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\Configurations.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\Configurations.AssemblyInfoInputs.cache
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\Configurations.AssemblyInfo.cs
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\Configurations.csproj.CoreCompileInputs.cache
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\Configurations.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\refint\Configurations.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\Configurations.pdb
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\Configurations\obj\Debug\net6.0\ref\Configurations.dll

@@ -1,4 +1,4 @@
-﻿namespace Domain.Models;
+﻿namespace Domain.Abstractions.BaseDatabaseModel;
 
 public interface IBaseDatabaseModel
 {

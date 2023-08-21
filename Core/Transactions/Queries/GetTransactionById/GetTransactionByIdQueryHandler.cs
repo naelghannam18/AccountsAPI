@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using AutoMapper;
-using Domain.DTOs;
+using Application.DTOs;
 using Domain.Exceptionsl;
 using Domain.Models;
 using Infrastructure.Repositories.Contracts;

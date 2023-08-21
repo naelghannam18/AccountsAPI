@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Domain.DTOs;
+using Application.DTOs;
 using Domain.Models;
 
-namespace Infrastructure.Mappings;
+namespace Application.Mappings;
 
 public class Mappings : Profile
 {
