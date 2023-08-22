@@ -2,7 +2,7 @@
 using AutoMapper;
 using Domain.Exceptions;
 using Domain.Models;
-using Infrastructure.Repositories.Contracts;
+using Domain.Contracts.Infrastructure;
 using MediatR;
 
 namespace Application.Customers.Commands.CreateCustomer;

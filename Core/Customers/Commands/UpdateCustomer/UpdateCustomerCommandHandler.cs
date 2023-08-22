@@ -1,5 +1,5 @@
 ﻿using Domain.Exceptions;
-using Infrastructure.Repositories.Contracts;
+using Domain.Contracts.Infrastructure;
 using MediatR;
 
 namespace Application.Customers.Commands.UpdateCustomer;

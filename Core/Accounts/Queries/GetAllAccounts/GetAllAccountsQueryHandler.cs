@@ -3,7 +3,7 @@ using System.Net;
 using Application.DTOs;
 using Domain.Models;
 using MediatR;
-using Infrastructure.Repositories.Contracts;
+using Domain.Contracts.Infrastructure;
 
 namespace Application.Accounts.Queries.GetAllAccounts;
 

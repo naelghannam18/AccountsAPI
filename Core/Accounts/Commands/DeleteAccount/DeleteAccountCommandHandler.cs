@@ -1,4 +1,4 @@
-﻿using Infrastructure.Repositories.Contracts;
+﻿using Domain.Contracts.Infrastructure;
 using MediatR;
 
 namespace Application.Accounts.Commands.DeleteAccount;

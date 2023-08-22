@@ -1,7 +1,6 @@
-﻿using Configurations;
+﻿using Domain.Contracts.Infrastructure;
 using Domain.Models;
-using Infrastructure.Repositories.Contracts;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
 namespace Infrastructure.Repositories.Implementations;
@@ -11,7 +10,7 @@ public class AccountsRepository : GenericRepository<Account>, IAccountsRepositor
     protected override string CollectionName => "accounts";
 
 
-    public AccountsRepository(IOptions<MongoDbConfiguration> mongoDbConfig) : base(mongoDbConfig)
+    public AccountsRepository(IConfiguration mongoDbConfig) : base(mongoDbConfig)
     {
     }
 
@@ -19,7 +18,7 @@ public class AccountsRepository : GenericRepository<Account>, IAccountsRepositor
     {
         if (entity.ReceivedTransactions?.Count > 0)
         {
-            var client = new MongoClient(MongoDbConfiguration.Value.ConnectionURL);
+            var client = new MongoClient(MongoDbConfiguration.GetSection("MongoDB")["ConnectionURL"]);
 
             using (var session = await client.StartSessionAsync())
             {
@@ -28,7 +27,7 @@ public class AccountsRepository : GenericRepository<Account>, IAccountsRepositor
                 try
                 {
                     // Create transaction collection
-                    var transactionCollection = client.GetDatabase(MongoDbConfiguration.Value.DatabaseName).GetCollection<Transaction>("transactions");
+                    var transactionCollection = client.GetDatabase(MongoDbConfiguration.GetSection("MongoDB")["DatabaseName"]).GetCollection<Transaction>("transactions");
 
                     // Get The Transaction
                     var transaction = entity.ReceivedTransactions?.First();
@@ -45,7 +44,7 @@ public class AccountsRepository : GenericRepository<Account>, IAccountsRepositor
 
                     //// Modify Account Received Transactions 
                     //entity.ReceivedTransactions?.Add(transaction);
-                    
+
                     // Update the Account with transaction
                     var filter = Builders<Account>.Filter.Eq("Id", entity.Id);
                     var update = Builders<Account>.Update.Push(a => a.ReceivedTransactions, transaction);

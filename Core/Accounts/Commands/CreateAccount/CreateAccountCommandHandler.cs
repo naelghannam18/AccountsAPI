@@ -1,7 +1,7 @@
 ﻿using Domain.Exceptions;
 using System.Net;
 using Domain.Models;
-using Infrastructure.Repositories.Contracts;
+using Domain.Contracts.Infrastructure;
 using MediatR;
 
 namespace Application.Accounts.Commands.CreateAccount;

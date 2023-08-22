@@ -1,7 +1,6 @@
-﻿using Configurations;
+﻿using Domain.Contracts.Infrastructure;
 using Domain.Models;
-using Infrastructure.Repositories.Contracts;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 
 namespace Infrastructure.Repositories.Implementations;
@@ -10,21 +9,21 @@ public class TransactionsRepository : GenericRepository<Transaction>, ITransacti
 {
     protected override string CollectionName => "transactions";
 
-    public TransactionsRepository(IOptions<MongoDbConfiguration> mongoDbConfig) : base(mongoDbConfig)
+    public TransactionsRepository(IConfiguration mongoDbConfig) : base(mongoDbConfig)
     {
 
     }
 
     public override async Task<Transaction> Create(Transaction entity)
     {
-        var client = new MongoClient(MongoDbConfiguration.Value.ConnectionURL);
+        var client = new MongoClient(MongoDbConfiguration.GetSection("MongoDB")["ConnectionURL"]);
         using (var session = await client.StartSessionAsync())
         {
             session.StartTransaction();
 
             try
             {
-                var accountsCollection = client.GetDatabase(MongoDbConfiguration.Value.DatabaseName)
+                var accountsCollection = client.GetDatabase(MongoDbConfiguration.GetSection("MongoDB")["DatabaseName"])
                     .GetCollection<Account>("accounts");
                 // Get Sender and receiver
                 var sender = (await accountsCollection.FindAsync(a => a.Id == entity.SenderId)).First();

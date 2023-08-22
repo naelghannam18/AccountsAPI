@@ -1,10 +1,9 @@
 ﻿using Application.Behaviors;
 using FluentValidation;
 using Application.Mappings;
-using Infrastructure.Repositories.Contracts;
+using Domain.Contracts.Infrastructure;
 using Infrastructure.Repositories.Implementations;
 using MediatR;
-using Configurations;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver.Core.Connections;
@@ -21,7 +20,6 @@ public static class RegistrationService
         builder.Services.AddEndpointsApiExplorer();;
         builder.Services.AddSwaggerGen();
 
-        builder.RegisterConfigurationClasses();
         builder.RegisterDatabaseServices();
         builder.RegisterRepositories();
         builder.RegisterApplicationServices();
@@ -56,10 +54,5 @@ public static class RegistrationService
         builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         builder.Services.AddValidatorsFromAssembly(Application.AssemblyReference.ApplicationAssemblyReference, includeInternalTypes: true);
         builder.Services.AddAutoMapper(typeof(Mappings));
-    }
-
-    private static void RegisterConfigurationClasses(this WebApplicationBuilder builder)
-    {
-        builder.Services.Configure<MongoDbConfiguration>(builder.Configuration.GetSection("MongoDB"));
     }
 }

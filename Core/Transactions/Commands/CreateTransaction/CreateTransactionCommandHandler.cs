@@ -1,8 +1,7 @@
-﻿using Domain.Exceptions;
-using System.Net;
+﻿using System.Net;
+using Domain.Contracts.Infrastructure;
+using Domain.Exceptions;
 using Domain.Models;
-using Infrastructure.Repositories.Contracts;
-using Infrastructure.Repositories.Implementations;
 using MediatR;
 
 namespace Application.Transactions.Commands.CreateTransaction;

@@ -3,7 +3,7 @@ using AutoMapper;
 using Application.DTOs;
 using Domain.Exceptionsl;
 using Domain.Models;
-using Infrastructure.Repositories.Contracts;
+using Domain.Contracts.Infrastructure;
 using MediatR;
 
 namespace Application.Transactions.Queries.GetTransactionById;

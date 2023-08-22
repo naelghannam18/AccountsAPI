@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Infrastructure.Repositories.Contracts;
+using Domain.Contracts.Infrastructure;
 using MediatR;
 
 namespace Application.Customers.Commands.DeleteCustomers;

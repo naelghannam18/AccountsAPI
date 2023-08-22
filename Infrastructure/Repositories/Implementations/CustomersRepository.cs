@@ -1,13 +1,12 @@
-﻿using Configurations;
+﻿using Domain.Contracts.Infrastructure;
 using Domain.Models;
-using Infrastructure.Repositories.Contracts;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Repositories.Implementations;
 
 public class CustomersRepository : GenericRepository<Customer>, ICustomersRepository
 {
-    public CustomersRepository(IOptions<MongoDbConfiguration> mongoConfiguration) : base(mongoConfiguration)
+    public CustomersRepository(IConfiguration mongoConfiguration) : base(mongoConfiguration)
     {
 
     }
