@@ -389,9 +389,6 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "MongoDB.Driver": "2.21.0"
-        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -1077,7 +1074,8 @@
       "Configurations >= 1.0.0",
       "Domain >= 1.0.0",
       "Extensions >= 1.0.0",
-      "Microsoft.Extensions.Options >= 7.0.0"
+      "Microsoft.Extensions.Options >= 7.0.0",
+      "MongoDB.Driver >= 2.21.0"
     ]
   },
   "packageFolders": {
@@ -1136,6 +1134,10 @@
           "Microsoft.Extensions.Options": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "MongoDB.Driver": {
+            "target": "Package",
+            "version": "[2.21.0, )"
           }
         },
         "imports": [

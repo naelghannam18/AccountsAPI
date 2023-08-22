@@ -276,3 +276,6 @@ C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\obj\Debug\net6.0\refint\A
 C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\obj\Debug\net6.0\AccountsApi.pdb
 C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\obj\Debug\net6.0\AccountsApi.genruntimeconfig.cache
 C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\obj\Debug\net6.0\ref\AccountsApi.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\bin\Debug\net6.0\Configurations.dll
+C:\Users\n.ghannam\Desktop\RJP\AccountsAPI\AccountsApi\bin\Debug\net6.0\Configurations.pdb

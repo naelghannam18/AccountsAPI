@@ -2345,12 +2345,19 @@
           "bin/placeholder/Application.dll": {}
         }
       },
+      "Configurations/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Configurations.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Configurations.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "MongoDB.Driver": "2.21.0"
-        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -2373,9 +2380,11 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "12.0.1",
+          "Configurations": "1.0.0",
           "Domain": "1.0.0",
           "Extensions": "1.0.0",
-          "Microsoft.Extensions.Options": "7.0.0"
+          "Microsoft.Extensions.Options": "7.0.0",
+          "MongoDB.Driver": "2.21.0"
         },
         "compile": {
           "bin/placeholder/Infrastructure.dll": {}
@@ -7309,6 +7318,11 @@
       "type": "project",
       "path": "../Core/Application.csproj",
       "msbuildProject": "../Core/Application.csproj"
+    },
+    "Configurations/1.0.0": {
+      "type": "project",
+      "path": "../Configurations/Configurations.csproj",
+      "msbuildProject": "../Configurations/Configurations.csproj"
     },
     "Domain/1.0.0": {
       "type": "project",

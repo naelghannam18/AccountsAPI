@@ -28,6 +28,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj": {
+                "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj"
+              },
               "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\Application.csproj": {
                 "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Core\\Application.csproj"
               },
@@ -50,6 +53,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.7.1, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -77,6 +84,61 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj",
+        "projectName": "Configurations",
+        "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj",
+        "packagesPath": "C:\\Users\\n.ghannam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\n.ghannam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -189,12 +251,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "MongoDB.Driver": {
-              "target": "Package",
-              "version": "[2.21.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -294,6 +350,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj": {
+                "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Configurations\\Configurations.csproj"
+              },
               "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\Domain\\Domain.csproj"
               },
@@ -320,6 +379,10 @@
             "Microsoft.Extensions.Options": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.21.0, )"
             }
           },
           "imports": [

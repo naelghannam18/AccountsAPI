@@ -17,8 +17,9 @@ public class CustomerController : ControllerBase
     private readonly ISender Sender;
 
     #endregion
-    public CustomerController(ISender sender) => Sender = sender;
+
     #region Constructor
+    public CustomerController(ISender sender) => Sender = sender;
 
     #endregion
 

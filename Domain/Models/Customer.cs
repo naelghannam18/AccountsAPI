@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Domain.Implementations.BaseDatabaseModel;
 
 namespace Domain.Models;
 

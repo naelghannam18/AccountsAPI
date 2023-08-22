@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xGG8xlOlbOudwFkd/uUa5QHRoDP3vL0Jou9q81HXjV2fmpnpJS+EjHU3cdmhMNQzJEEJtdI1ixH533ZW57YYJw==",
+  "dgSpecHash": "c+bhamAs0v4Dq/VeHY0Fb/iZNuOZgME/qRNrXUD85AgzfQacw64cN4cTRRWeE39qNRigKtaMuwkdI253eFogag==",
   "success": true,
   "projectFilePath": "C:\\Users\\n.ghannam\\Desktop\\RJP\\AccountsAPI\\AccountsApi\\AccountsApi.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\n.ghannam\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\n.ghannam\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\n.ghannam\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",

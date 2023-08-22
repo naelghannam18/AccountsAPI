@@ -12,7 +12,8 @@
           "Configurations": "1.0.0",
           "Domain": "1.0.0",
           "Extensions": "1.0.0",
-          "Microsoft.Extensions.Options": "7.0.0"
+          "Microsoft.Extensions.Options": "7.0.0",
+          "MongoDB.Driver": "2.21.0"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -216,9 +217,6 @@
         }
       },
       "Domain/1.0.0": {
-        "dependencies": {
-          "MongoDB.Driver": "2.21.0"
-        },
         "runtime": {
           "Domain.dll": {}
         }

@@ -5,6 +5,11 @@ using Infrastructure.Repositories.Contracts;
 using Infrastructure.Repositories.Implementations;
 using MediatR;
 using Configurations;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
+using MongoDB.Driver.Core.Connections;
+using MongoDB.Bson.Serialization.IdGenerators;
+using Domain.Models;
 
 namespace AccountsApi;
 
@@ -24,6 +29,14 @@ public static class RegistrationService
 
     private static void RegisterDatabaseServices(this WebApplicationBuilder builder)
     {
+        BsonClassMap.RegisterClassMap<BaseDatabaseModel>(map =>
+        {
+            map.AutoMap();
+            map.MapIdProperty(x => x.Id)
+            .SetElementName("_id")
+            .SetIdGenerator(StringObjectIdGenerator.Instance)
+            .SetSerializer(new StringSerializer(MongoDB.Bson.BsonType.ObjectId));
+        });
     }
 
     private static void RegisterRepositories(this WebApplicationBuilder builder)
