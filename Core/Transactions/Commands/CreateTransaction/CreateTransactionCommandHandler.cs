@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Domain.Abstractions.Events;
 using Domain.Contracts.Infrastructure;
 using Domain.Exceptions;
 using Domain.Models;
@@ -8,15 +9,22 @@ namespace Application.Transactions.Commands.CreateTransaction;
 
 public class CreateTransactionCommandHandler : IRequestHandler<CreateTransactionCommand, Response<string>>
 {
+    #region Private Readonly Fields
     private readonly ITransactionsRepository TransactionsRepository;
     private readonly IAccountsRepository AccountsRepository;
+    private readonly IEventBus EventBus;
+    #endregion
 
-    public CreateTransactionCommandHandler(ITransactionsRepository transactionRepository, IAccountsRepository accountsRepository)
+    #region Constructor
+    public CreateTransactionCommandHandler(ITransactionsRepository transactionsRepository, IAccountsRepository accountsRepository, IEventBus eventBus)
     {
-        TransactionsRepository = transactionRepository;
+        TransactionsRepository = transactionsRepository;
         AccountsRepository = accountsRepository;
+        EventBus = eventBus;
     }
+    #endregion
 
+    #region Command Handler
     public async Task<Response<string>> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
     {
         if (request is null) throw new ModelValidationException(new() { "Please Provide Missing Values" });
@@ -42,10 +50,20 @@ public class CreateTransactionCommandHandler : IRequestHandler<CreateTransaction
         };
         var result = await TransactionsRepository.Create(entity);
 
+        await EventBus.PublishAsync(
+            new TransactionCreatedEvent()
+            {
+                Amount = entity.Amount,
+                SenderAccountId = entity.SenderId,
+                ReceiverAccountId = entity.ReceiverId
+            },
+            cancellationToken);
+
         return new()
         {
             Status = HttpStatusCode.Created,
             Data = result.Id
         };
-    }
+    } 
+    #endregion
 }

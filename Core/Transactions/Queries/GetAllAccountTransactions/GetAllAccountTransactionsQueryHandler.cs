@@ -9,15 +9,20 @@ namespace Application.Transactions.Queries.GetAllAccountTransactions;
 
 public class GetAllAccountTransactionsQueryHandler : IRequestHandler<GetAllAccountTransactionsQuery, Response<List<TransactionDTO>>>
 {
+    #region Private Readonly Fields
     private readonly ITransactionsRepository TransactionsRepository;
     private readonly IMapper Mapper;
+    #endregion
 
+    #region Constructor
     public GetAllAccountTransactionsQueryHandler(ITransactionsRepository transactionsRepository, IMapper mapper)
     {
         TransactionsRepository = transactionsRepository;
         Mapper = mapper;
     }
+    #endregion
 
+    #region Query Handler
     public async Task<Response<List<TransactionDTO>>> Handle(GetAllAccountTransactionsQuery request, CancellationToken cancellationToken)
     {
         var result = (await TransactionsRepository
@@ -30,5 +35,6 @@ public class GetAllAccountTransactionsQueryHandler : IRequestHandler<GetAllAccou
             Status = HttpStatusCode.OK,
             Data = result
         };
-    }
+    } 
+    #endregion
 }

@@ -10,15 +10,20 @@ namespace Application.Transactions.Queries.GetTransactionById;
 
 public class GetTransactionByIdQueryHandler : IRequestHandler<GetTransactionByIdQuery, Response<TransactionDTO>>
 {
+    #region Private Readonly Fields
     private readonly ITransactionsRepository TransactionsRepository;
     private readonly IMapper Mapper;
+    #endregion
 
+    #region Constructor
     public GetTransactionByIdQueryHandler(ITransactionsRepository transactionRepository, IMapper mapper)
     {
         TransactionsRepository = transactionRepository;
         Mapper = mapper;
     }
+    #endregion
 
+    #region Command Handler
     public async Task<Response<TransactionDTO>> Handle(GetTransactionByIdQuery request, CancellationToken cancellationToken)
     {
         var result = Mapper.Map<TransactionDTO>(await TransactionsRepository.GetById(request.transactionId));
@@ -32,5 +37,6 @@ public class GetTransactionByIdQueryHandler : IRequestHandler<GetTransactionById
             };
         }
         else throw new TransactionNotFoundException(request.transactionId);
-    }
+    } 
+    #endregion
 }

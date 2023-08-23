@@ -1,6 +1,5 @@
 ﻿using Application.Behaviors;
 using Application.Mappings;
-using Application.Transactions.Commands.CreateTransaction;
 using Domain.Abstractions.Events;
 using Domain.Contracts.Infrastructure;
 using Domain.Models;
@@ -13,14 +12,14 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson.Serialization.Serializers;
 
-namespace AccountsApi;
+namespace CustomersApi;
 
 public static class RegistrationService
 {
-    #region Register Services
+    #region Resgiter Services
+    // This Method is used to register DI Dependencies
     public static void RegisterServices(this WebApplicationBuilder builder)
     {
-        // This Method is used to register All DI Instances
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer(); ;
         builder.Services.AddSwaggerGen();
@@ -33,6 +32,7 @@ public static class RegistrationService
     #endregion
 
     #region Register Database Services
+
     private static void RegisterDatabaseServices(this WebApplicationBuilder builder)
     {
         BsonClassMap.RegisterClassMap<BaseDatabaseModel>(map =>
@@ -90,7 +90,6 @@ public static class RegistrationService
                 });
                 configurator.ConfigureEndpoints(context);
             });
-
         });
         builder.Services.AddScoped<IEventBus, EventBus>();
     } 

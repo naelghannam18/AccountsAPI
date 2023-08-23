@@ -2,18 +2,26 @@
 using System.Text.Json;
 using Domain.Exceptions;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 
-namespace AccountsApi.ExceptionHandler;
+namespace Middlewares.ExceptionHandling;
 
 public class GlobalExceptionHandler
 {
+    #region Private Readonly Fields
     private readonly RequestDelegate Next;
+    #endregion
 
+    #region Constructor
     public GlobalExceptionHandler(RequestDelegate next)
     {
         Next = next;
     }
+    #endregion
 
+    #region Public Methods
+
+    #region Invoke
     public async Task Invoke(HttpContext context)
     {
         try
@@ -38,7 +46,13 @@ public class GlobalExceptionHandler
             await context.Response.WriteAsync(result);
         }
     }
+    #endregion
 
+    #endregion
+
+    #region Private Methods
+
+    #region Get Status Code
     private static int GetStatusCode(Exception ex)
     {
         return ex switch
@@ -52,9 +66,15 @@ public class GlobalExceptionHandler
             _ => (int)HttpStatusCode.InternalServerError
         };
     }
+    #endregion
 
+    #region Get Exception Type
     private static string GetExceptionType(Exception ex) => ex.GetType().ToString();
+    #endregion
 
+    #endregion
+
+    #region Response Class
     private class Response
     {
         public string Message { get; set; }
@@ -63,5 +83,6 @@ public class GlobalExceptionHandler
 
         public string Details { get; set; }
 
-    }
+    } 
+    #endregion
 }

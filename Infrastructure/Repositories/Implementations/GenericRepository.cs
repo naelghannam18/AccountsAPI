@@ -6,7 +6,8 @@ using MongoDB.Driver;
 
 namespace Infrastructure.Repositories.Implementations;
 
-public abstract class GenericRepository<TModel> : IGenericRepository<TModel> where TModel : class, IBaseDatabaseModel
+public abstract class GenericRepository<TModel>
+    : IGenericRepository<TModel> where TModel : class, IBaseDatabaseModel
 {
     #region Protected Properties
     protected abstract string CollectionName { get; }
@@ -28,12 +29,16 @@ public abstract class GenericRepository<TModel> : IGenericRepository<TModel> whe
     #endregion
 
     #region Public Methods
+
+    #region Insert
     public async virtual Task<TModel> Create(TModel entity)
     {
         await Collection.InsertOneAsync(entity);
         return entity;
     }
+    #endregion
 
+    #region Delete
     public async virtual Task Delete(bool softDelete = true, params string[] ids)
     {
         var filter = Builders<TModel>.Filter.In("Id", ids);
@@ -45,21 +50,31 @@ public abstract class GenericRepository<TModel> : IGenericRepository<TModel> whe
         }
         else await Collection.DeleteManyAsync(filter);
     }
+    #endregion
 
+    #region Conditional Get
     public async virtual Task<List<TModel>> Get(Expression<Func<TModel, bool>> condition) => (await Collection.FindAsync(condition)).ToList();
+    #endregion
 
+    #region Get All
     public async virtual Task<List<TModel>> GetAll() => (await Collection.FindAsync(t => !t.IsRemoved)).ToList();
+    #endregion
 
+    #region Get By Id
     public async virtual Task<TModel> GetById(string id)
     {
         var filter = Builders<TModel>.Filter.Eq("Id", id);
         return (await Collection.FindAsync(filter)).FirstOrDefault();
     }
+    #endregion
 
+    #region Update
     public async virtual Task Update(TModel entity)
     {
         var filter = Builders<TModel>.Filter.Eq("Id", entity.Id);
         await Collection.FindOneAndReplaceAsync(filter, entity);
-    }
+    } 
+    #endregion
+
     #endregion
 }

@@ -10,15 +10,20 @@ namespace Application.Accounts.Queries.GetAccountById;
 
 public class GetAccountByIdQueryHandler : IRequestHandler<GetAccountByIdQuery, Response<AccountDTO>>
 {
+    #region Private readonly fields
     private readonly IAccountsRepository AccountsRepository;
     private readonly IMapper Mapper;
+    #endregion
 
+    #region Constructor
     public GetAccountByIdQueryHandler(IAccountsRepository accountsRepository, IMapper mapper)
     {
         AccountsRepository = accountsRepository;
         Mapper = mapper;
     }
+    #endregion
 
+    #region Query Handler
     public async Task<Response<AccountDTO>> Handle(GetAccountByIdQuery request, CancellationToken cancellationToken)
     {
         var result = await AccountsRepository.GetById(request.accountId);
@@ -31,5 +36,6 @@ public class GetAccountByIdQueryHandler : IRequestHandler<GetAccountByIdQuery, R
             };
         }
         else throw new AccountDoesNotExistException(request.accountId);
-    }
+    } 
+    #endregion
 }

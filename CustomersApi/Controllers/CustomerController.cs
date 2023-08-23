@@ -7,7 +7,7 @@ using Application.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AccountsApi.Controllers;
+namespace CustomersApi.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

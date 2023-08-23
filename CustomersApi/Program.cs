@@ -1,5 +1,5 @@
-using AccountsApi;
 using Middlewares.ExceptionHandling;
+using CustomersApi;
 
 var builder = WebApplication.CreateBuilder(args);
 

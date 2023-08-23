@@ -6,11 +6,11 @@ namespace Infrastructure.Repositories.Implementations;
 
 public class CustomersRepository : GenericRepository<Customer>, ICustomersRepository
 {
-    public CustomersRepository(IConfiguration mongoConfiguration) : base(mongoConfiguration)
-    {
+	#region Protected Properties
+	protected override string CollectionName => "customers";
+	#endregion
 
-    }
-
-    protected override string CollectionName => "customers";
-
+	#region Constructor
+	public CustomersRepository(IConfiguration mongoConfiguration) : base(mongoConfiguration) { } 
+	#endregion
 }

@@ -1,11 +1,10 @@
-﻿using Application.Transactions.Commands.CreateTransaction;
+﻿using Application.DTOs;
+using Application.Transactions.Commands.CreateTransaction;
 using Application.Transactions.Commands.DeleteTransactions;
 using Application.Transactions.Queries.GetAllAccountTransactions;
 using Application.Transactions.Queries.GetTransactionById;
-using Application.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 
 namespace AccountsApi.Controllers;
 

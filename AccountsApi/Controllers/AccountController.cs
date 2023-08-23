@@ -6,7 +6,6 @@ using Application.Accounts.Queries.GetAllAccounts;
 using Application.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 #endregion
 
 namespace AccountsApi.Controllers;
